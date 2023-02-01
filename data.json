@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "name": "Jane Doe",
+    "post": "I love spending time with my family!",
+    "creationTime": "2023-01-31",
+    "status": "disliked"
+  },
+  {
+    "id": 2,
+    "name": "John Smith",
+    "post": "Can't wait for the weekend! #TGIF",
+    "creationTime": "2023-01-31",
+    "status": "neutral"
+  },
+  {
+    "name": "Sophie Johnson",
+    "post": "Going for a run this morning to start the day off right!",
+    "creationTime": "2023-02-01",
+    "status": "neutral",
+    "id": 3
+  }
+]
