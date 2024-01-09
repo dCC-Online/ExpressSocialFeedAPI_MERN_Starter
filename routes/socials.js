@@ -9,6 +9,6 @@ const {
 } = require("../controllers/controllers.js");
 
 //Build your endpoints here
-//!NOTE: when calling any of the functions in lines 4-8, you MUST use the "await" keyword.
+//!NOTE: when calling any of the functions in lines 4-8, you MUST use the "await" keyword - Ex: await getAll()
 
 module.exports = router;

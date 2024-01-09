@@ -77,31 +77,31 @@ function updateById(id, update) {
   });
 }
 /**
- * @param {Object} item - The contents of the body sent in with the POST request.
- * @param {string} item.name - The name of the "post" creator.
- * @param {string} item.post - The text of the post.
- * @param {string} item.creationTime - The date of the post.
- * @param {string} item.status - The status of the post. Options: "neutral", "liked","disliked".
+ * @param {Object} post - The contents of the body sent in with the POST request.
+ * @param {string} post.name - The name of the "post" creator.
+ * @param {string} post.post - The text of the post.
+ * @param {string} post.creationTime - The date of the post.
+ * @param {string} post.status - The status of the post. Options: "neutral", "liked","disliked".
  */
-function create(item) {
+function create(post) {
   return new Promise((resolve, reject) => {
-    if (!item.name || !item.post || !item.creationTime || !item.status) {
+    if (!post.name || !post.post || !post.creationTime || !post.status) {
       reject(
-        "Invalid item data. Must include 'name', 'post', 'creationTime', and 'status' keys."
+        "Invalid post data. Must include 'name', 'post', 'creationTime', and 'status' keys."
       );
     }
     fs.readFile(filePath, "utf-8", (error, data) => {
       if (error) {
         reject(error);
       } else {
-        let items = JSON.parse(data);
-        item.id = parseInt(items.length + 1);
-        items.push(item);
-        fs.writeFile(filePath, JSON.stringify(items), (error) => {
+        let posts = JSON.parse(data);
+        post.id = parseInt(posts.length + 1);
+        posts.push(post);
+        fs.writeFile(filePath, JSON.stringify(posts), (error) => {
           if (error) {
             reject(error);
           } else {
-            resolve(item);
+            resolve(post);
           }
         });
       }
