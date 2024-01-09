@@ -1,5 +1,19 @@
 const fs = require("fs");
 const filePath = "data.json";
+/**
+ * @typedef Post
+ * @type {object}
+ * @property {number} id - The unique identifier for the post.
+ * @property {string} name - The name of the post creator.
+ * @property {string} post - The text content of the post.
+ * @property {string} creationTime - The creation time of the post.
+ * @property {string} status - The status of the post ('neutral', 'liked', 'disliked').
+ */
+
+/**
+ * Returns all posts.
+ * @returns {<Post[]> An array of Post objects.
+ */
 function getAll() {
   return new Promise((resolve, reject) => {
     fs.readFile(filePath, "utf-8", (error, data) => {
@@ -13,8 +27,11 @@ function getAll() {
     });
   });
 }
+
 /**
- * @param {Number} id - "id" of psot you want to fetch
+ * Returns a post by ID.
+ * @param {number} id - The ID of the post to fetch.
+ * @returns {<Post> The requested Post object.
  */
 function getById(id) {
   return new Promise((resolve, reject) => {
@@ -34,12 +51,14 @@ function getById(id) {
   });
 }
 /**
+ * Updates a post by ID.
  * @param {Number} id - "id" of psot you want to update.
  * @param {Object} update - The contents of the body sent in with the PUT request.
  * @param {string} update.name - The name of the "post" creator.
  * @param {string} update.post - The text of the post.
  * @param {string} update.creationTime - The date of the post.
  * @param {string} update.status - The status of the post. Options: "neutral", "liked","disliked".
+ * @returns {<Post> The updated Post object.
  */
 function updateById(id, update) {
   id = parseInt(id);
@@ -67,11 +86,13 @@ function updateById(id, update) {
   });
 }
 /**
+ * Creates a new post.
  * @param {Object} post - The contents of the body sent in with the POST request.
  * @param {string} post.name - The name of the "post" creator.
  * @param {string} post.post - The text of the post.
  * @param {string} post.creationTime - The date of the post.
  * @param {string} post.status - The status of the post. Options: "neutral", "liked","disliked".
+ * @returns {<Post> The newly created Post object.
  */
 function create(post) {
   return new Promise((resolve, reject) => {
@@ -94,7 +115,9 @@ function create(post) {
   });
 }
 /**
- * @param {Number} id - "id" of post you want to delete.
+ * Deletes a post by ID.
+ * @param {number} id - The ID of the post to delete.
+ * @returns {<Post> The deleted Post object.
  */
 function deleteById(id) {
   id = parseInt(id);
