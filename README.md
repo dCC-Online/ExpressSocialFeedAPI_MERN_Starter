@@ -1,4 +1,4 @@
-# Express Social Posts Project
+# Express.js Social Feed API Project
 
 ## Introduction
 This project is designed as an introduction to Express and simulates the basic operations you would perform using a database, here represented with a local JSON file. It's a great stepping stone before diving into database management systems like MongoDB.
