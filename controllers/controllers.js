@@ -44,16 +44,6 @@ function getById(id) {
 function updateById(id, update) {
   id = parseInt(id);
   return new Promise((resolve, reject) => {
-    if (
-      !update.name ||
-      !update.post ||
-      !update.creationTime ||
-      !update.status
-    ) {
-      reject(
-        "Invalid update data. Must include 'name', 'post', 'creationTime', and 'status' keys."
-      );
-    }
     fs.readFile(filePath, "utf-8", (error, data) => {
       if (error) {
         reject(error);
@@ -85,11 +75,6 @@ function updateById(id, update) {
  */
 function create(post) {
   return new Promise((resolve, reject) => {
-    if (!post.name || !post.post || !post.creationTime || !post.status) {
-      reject(
-        "Invalid post data. Must include 'name', 'post', 'creationTime', and 'status' keys."
-      );
-    }
     fs.readFile(filePath, "utf-8", (error, data) => {
       if (error) {
         reject(error);
